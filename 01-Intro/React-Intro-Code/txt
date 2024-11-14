@@ -1,0 +1,46 @@
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleBuyNow = () => {
+    setShowPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
+  return (
+    <div className="App">
+      <button onClick={handleBuyNow}>Buy Now</button>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>Are you sure you want to proceed with the purchase?</p>
+            <button onClick={handleClosePopup}>Confirm</button>
+            <button onClick={handleClosePopup}>Cancel</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
+
+/* CSS (App.css):
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.popup-content button {
+  margin: 5px;
+}
+*/
